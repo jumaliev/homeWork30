@@ -40,4 +40,9 @@ public class Customer {
     //----------------------------------------------------------------------
 
 
+    @Override
+    public String toString() {
+        return  "\n     Имя: " + fullName +
+                "\n     Email: " + email;
+    }
 }

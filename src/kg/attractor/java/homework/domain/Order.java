@@ -52,8 +52,20 @@ public class Order {
     //----------------------------------------------------------------------
 
     public void calculateTotal() {
-        total += items.stream().mapToDouble(i -> i.getPrice()).sum();
-        System.out.println("Общая стоимость заказа состовляет: " + total + "$");
+        total += items.stream().mapToDouble(i -> (i.getAmount() * i.getPrice())).sum();
+//        System.out.printf("\nОбщая стоимость заказа состовляет: %.2f$", total);
     }
-    
+
+    @Override
+    public String toString() {
+        String str = "";
+        if (!homeDelivery) {
+            str = "\nСамовывоз";
+        } else {
+            str = "\nДоставка на дом";
+        }
+        return String.format(
+                "\n====================================\nЗаказчик: %s\nЗаказ: %s %s\nОбщая стоимость заказа состовляет: %.2f$",
+                customer.toString(), items.toString(), str, total);
+    }
 }
