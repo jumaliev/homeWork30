@@ -8,6 +8,7 @@ import kg.attractor.java.homework.domain.Order;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,16 +67,15 @@ public class RestaurantOrders {
                 .filter(Order::isHomeDelivery)
                 .collect(Collectors.toList());
     }
-    public void profitableHomeOrders(){
+    public List<Order> profitableAndLeastHomeOrders(){
         System.out.println("Заказ на дом который был наиболее прибыльным: ");
-        System.out.println(homeDeliveryOrders().stream()
+        List<Order> orders1 = new ArrayList<>();
+        orders1.add(homeDeliveryOrders().stream()
                 .max(Comparator.comparingDouble(Order::getTotal)).get());
-
-    }
-    public void leastProfitableHomeOrders() {
         System.out.println("Заказ на дом который был наименее прибыльным: ");
-        System.out.println(homeDeliveryOrders().stream()
+        orders1.add(homeDeliveryOrders().stream()
                 .min(Comparator.comparingDouble(Order::getTotal)).get());
+        return orders1;
     }
 
 
