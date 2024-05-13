@@ -46,19 +46,20 @@ public class RestaurantOrders {
     // для решения заданий из домашки :)
     // вы можете добавлять все необходимые imports
     //
-    public void ordersLargestAmounts(int i) {
-        var orders2 = orders.stream()
+    public List<Order> ordersLargestAmounts(int i) {
+        return orders.stream()
                 .sorted(((o1, o2) -> Double.compare(o2.getTotal(), o1.getTotal())))
                 .limit(15)
                 .collect(Collectors.toList());
-        System.out.println(orders2);
     }
-    public void ordersSmallestAmounts(int i) {
-        var orders2 = orders.stream()
+    public List<Order> ordersSmallestAmounts(int i) {
+        return orders.stream()
                 .sorted(((o1, o2) -> Double.compare(o1.getTotal(), o2.getTotal())))
                 .limit(15)
                 .collect(Collectors.toList());
-        System.out.println(orders2);
+    }
+    public List<Order> homeDeliveryOrders() {
+        return orders.stream().filter(Order::isHomeDelivery).collect(Collectors.toList());
     }
 
 
