@@ -2,15 +2,14 @@ package kg.attractor.java.homework;
 
 import com.google.gson.Gson;
 
+import kg.attractor.java.homework.domain.Customer;
 import kg.attractor.java.homework.domain.Item;
 import kg.attractor.java.homework.domain.Order;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RestaurantOrders {
@@ -77,9 +76,19 @@ public class RestaurantOrders {
                 .min(Comparator.comparingDouble(Order::getTotal)).get());
         return orders1;
     }
+
+
+    //  Создать метод, который будет выбирать все заказы с общей суммой больше minOrderTotal, и меньше maxOrderTotal.
+
+
+
     public double sumTotal() {
         return orders.stream().mapToDouble(Order::getTotal).sum();
     }
+    public Set<String> customerEmails() {
+        return orders.stream().map(order -> order.getCustomer().getEmail()).collect(Collectors.toSet());
+    }
+
 
 
 
