@@ -8,7 +8,9 @@ import kg.attractor.java.homework.domain.Order;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RestaurantOrders {
     // Этот блок кода менять нельзя! НАЧАЛО!
@@ -44,6 +46,14 @@ public class RestaurantOrders {
     // для решения заданий из домашки :)
     // вы можете добавлять все необходимые imports
     //
+    public void ordersLargestAmounts(int i) {
+        var orders2 = orders.stream()
+                .sorted(((o1, o2) -> Double.compare(o2.getTotal(), o1.getTotal())))
+                .limit(15)
+                .collect(Collectors.toList());
+        System.out.println(orders2);
+    }
+    
 
 
 }

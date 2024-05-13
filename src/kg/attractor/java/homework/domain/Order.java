@@ -53,7 +53,6 @@ public class Order {
 
     public void calculateTotal() {
         total += items.stream().mapToDouble(i -> (i.getAmount() * i.getPrice())).sum();
-//        System.out.printf("\nОбщая стоимость заказа состовляет: %.2f$", total);
     }
 
     @Override
@@ -68,4 +67,5 @@ public class Order {
                 "\n====================================\nЗаказчик: %s\nЗаказ: %s %s\nОбщая стоимость заказа состовляет: %.2f$",
                 customer.toString(), items.toString(), str, total);
     }
+
 }
