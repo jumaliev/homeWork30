@@ -10,9 +10,10 @@ public class Main {
         //var orders = RestaurantOrders.read("orders_10_000.json").getOrders();
 
         // протестировать ваши методы вы можете как раз в этом файле (или в любом другом, в котором вам будет удобно)
+//        RestaurantOrders.read("orders_100.json").printOrders();
 //        RestaurantOrders.read("orders_100.json").ordersLargestAmounts(15);
 //        RestaurantOrders.read("orders_100.json").ordersSmallestAmounts(15);
-        System.out.println(RestaurantOrders.read("orders_100.json").homeDeliveryOrders());
+//        System.out.println(RestaurantOrders.read("orders_100.json").homeDeliveryOrders());
 
 
 

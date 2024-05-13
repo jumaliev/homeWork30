@@ -46,6 +46,9 @@ public class RestaurantOrders {
     // для решения заданий из домашки :)
     // вы можете добавлять все необходимые imports
     //
+    public void printOrders() {
+        System.out.println(orders);
+    }
     public List<Order> ordersLargestAmounts(int i) {
         return orders.stream()
                 .sorted(((o1, o2) -> Double.compare(o2.getTotal(), o1.getTotal())))
