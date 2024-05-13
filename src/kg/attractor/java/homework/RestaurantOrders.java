@@ -68,10 +68,14 @@ public class RestaurantOrders {
     }
     public void profitableHomeOrders(){
         System.out.println("Заказ на дом который был наиболее прибыльным: ");
-        System.out.print(homeDeliveryOrders().stream()
+        System.out.println(homeDeliveryOrders().stream()
+                .max(Comparator.comparingDouble(Order::getTotal)).get());
+
+    }
+    public void leastProfitableHomeOrders() {
+        System.out.println("Заказ на дом который был наименее прибыльным: ");
+        System.out.println(homeDeliveryOrders().stream()
                 .min(Comparator.comparingDouble(Order::getTotal)).get());
-
-
     }
 
 
