@@ -53,7 +53,16 @@ public class RestaurantOrders {
                 .collect(Collectors.toList());
         System.out.println(orders2);
     }
-    
+    public void ordersSmallestAmounts(int i) {
+        var orders2 = orders.stream()
+                .sorted(((o1, o2) -> Double.compare(o1.getTotal(), o2.getTotal())))
+                .limit(15)
+                .collect(Collectors.toList());
+        System.out.println(orders2);
+    }
+
+
+
 
 
 }
