@@ -14,8 +14,9 @@ public class Main {
 //        RestaurantOrders.read("orders_100.json").ordersLargestAmounts(15);
 //        RestaurantOrders.read("orders_100.json").ordersSmallestAmounts(15);
 //        System.out.println(RestaurantOrders.read("orders_100.json").homeDeliveryOrders());
-//        RestaurantOrders.read("orders_100.json").profitableHomeOrders();
-//        RestaurantOrders.read("orders_100.json").leastProfitableHomeOrders();
+//        System.out.println(RestaurantOrders.read("orders_100.json").profitableAndLeastHomeOrders());
+//        System.out.println(RestaurantOrders.read("orders_100.json").sumTotal());
+
 
 
 

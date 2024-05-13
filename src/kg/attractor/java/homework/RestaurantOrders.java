@@ -77,6 +77,9 @@ public class RestaurantOrders {
                 .min(Comparator.comparingDouble(Order::getTotal)).get());
         return orders1;
     }
+    public double sumTotal() {
+        return orders.stream().mapToDouble(Order::getTotal).sum();
+    }
 
 
 
