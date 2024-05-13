@@ -62,8 +62,18 @@ public class RestaurantOrders {
                 .collect(Collectors.toList());
     }
     public List<Order> homeDeliveryOrders() {
-        return orders.stream().filter(Order::isHomeDelivery).collect(Collectors.toList());
+        return orders.stream()
+                .filter(Order::isHomeDelivery)
+                .collect(Collectors.toList());
     }
+    public void profitableHomeOrders(){
+        System.out.println("Заказ на дом который был наиболее прибыльным: ");
+        System.out.print(homeDeliveryOrders().stream()
+                .min(Comparator.comparingDouble(Order::getTotal)).get());
+
+
+    }
+
 
 
 
