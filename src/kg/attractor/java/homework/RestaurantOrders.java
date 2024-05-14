@@ -100,7 +100,13 @@ public class RestaurantOrders {
                 .collect(Collectors.toMap(entry -> entry.getKey(), e -> e.getValue().stream().mapToDouble(Order::getTotal).sum()));
     }
 
-
+    public Customer returnCustomerMaxTotal() {
+        return groupingByCustomerNames().entrySet()
+                .stream()
+                .max(Comparator.comparingDouble(v -> v.getValue().stream().mapToDouble(Order::getTotal).sum()))
+                .map(Map.Entry::getKey)
+                .orElse(null);
+    }
 
 
 
