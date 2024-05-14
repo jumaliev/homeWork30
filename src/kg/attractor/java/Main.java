@@ -19,8 +19,9 @@ public class Main {
 //        System.out.println(RestaurantOrders.read("orders_100.json").customerEmails());
 //        System.out.println(RestaurantOrders.read("orders_100.json").groupingByCustomerNames());
 //        System.out.println(RestaurantOrders.read("orders_100.json").grupingByNamesAndTotal());
-        System.out.println(RestaurantOrders.read("orders_100.json").returnCustomerMaxTotal());
-        System.out.println(RestaurantOrders.read("orders_100.json").returnCustomerMinTotal());
+//        System.out.println(RestaurantOrders.read("orders_100.json").returnCustomerMaxTotal());
+//        System.out.println(RestaurantOrders.read("orders_100.json").returnCustomerMinTotal());
+//        System.out.println(RestaurantOrders.read("orders_100.json").groupingProductsByTotalQuantity());
 
 
 

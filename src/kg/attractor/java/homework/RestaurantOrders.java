@@ -114,6 +114,11 @@ public class RestaurantOrders {
                 .map(Map.Entry::getKey)
                 .orElse(null);
     }
+    public Map<String, Integer> groupingProductsByTotalQuantity() {
+        return orders.stream()
+                .flatMap(order -> order.getItems().stream())
+                .collect(Collectors.groupingBy(Item::getName, Collectors.summingInt(Item::getAmount)));
+    }
 
 
 
