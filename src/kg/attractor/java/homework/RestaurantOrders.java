@@ -107,6 +107,13 @@ public class RestaurantOrders {
                 .map(Map.Entry::getKey)
                 .orElse(null);
     }
+    public Customer returnCustomerMinTotal() {
+        return groupingByCustomerNames().entrySet()
+                .stream()
+                .min(Comparator.comparingDouble(v -> v.getValue().stream().mapToDouble(Order::getTotal).sum()))
+                .map(Map.Entry::getKey)
+                .orElse(null);
+    }
 
 
 
