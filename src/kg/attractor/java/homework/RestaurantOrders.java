@@ -89,6 +89,10 @@ public class RestaurantOrders {
         return orders.stream().map(order -> order.getCustomer().getEmail()).collect(Collectors.toSet());
     }
 
+    public Map<Customer, List<Order>> groupingByCustomerNames() {
+        return orders.stream().collect(Collectors.groupingBy(Order::getCustomer));
+    }
+
 
 
 
