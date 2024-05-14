@@ -41,32 +41,31 @@ public class RestaurantOrders {
     //------   Реализация ваших методов должна быть ниже этой линии   ------
     //----------------------------------------------------------------------
 
-    // Наполните этот класс решением домашнего задания.
-    // Вам необходимо создать все необходимые методы
-    // для решения заданий из домашки :)
-    // вы можете добавлять все необходимые imports
-    //
     public void printOrders() {
         System.out.println(orders);
     }
+
     public List<Order> ordersLargestAmounts(int i) {
         return orders.stream()
                 .sorted(((o1, o2) -> Double.compare(o2.getTotal(), o1.getTotal())))
                 .limit(15)
                 .collect(Collectors.toList());
     }
+
     public List<Order> ordersSmallestAmounts(int i) {
         return orders.stream()
                 .sorted(((o1, o2) -> Double.compare(o1.getTotal(), o2.getTotal())))
                 .limit(15)
                 .collect(Collectors.toList());
     }
+
     public List<Order> homeDeliveryOrders() {
         return orders.stream()
                 .filter(Order::isHomeDelivery)
                 .collect(Collectors.toList());
     }
-    public List<Order> profitableAndLeastHomeOrders(){
+
+    public List<Order> profitableAndLeastHomeOrders() {
         List<Order> orders1 = new ArrayList<>();
         orders1.add(homeDeliveryOrders().stream()
                 .max(Comparator.comparingDouble(Order::getTotal)).get());
@@ -82,11 +81,10 @@ public class RestaurantOrders {
                 .collect(Collectors.toList());
     }
 
-
-
     public double sumTotal() {
         return orders.stream().mapToDouble(Order::getTotal).sum();
     }
+
     public Set<String> customerEmails() {
         return orders.stream()
                 .map(order -> order.getCustomer().getEmail())
@@ -97,6 +95,7 @@ public class RestaurantOrders {
         return orders.stream()
                 .collect(Collectors.groupingBy(Order::getCustomer));
     }
+
     public Map<Customer, Double> grupingByNamesAndTotal() {
         return groupingByCustomerNames().entrySet().stream()
                 .collect(Collectors.toMap(entry -> entry.getKey(), e -> e.getValue().stream().mapToDouble(Order::getTotal).sum()));
@@ -109,6 +108,7 @@ public class RestaurantOrders {
                 .map(Map.Entry::getKey)
                 .orElse(null);
     }
+
     public Customer returnCustomerMinTotal() {
         return groupingByCustomerNames().entrySet()
                 .stream()
@@ -116,14 +116,12 @@ public class RestaurantOrders {
                 .map(Map.Entry::getKey)
                 .orElse(null);
     }
+
     public Map<String, Integer> groupingProductsByTotalQuantity() {
         return orders.stream()
                 .flatMap(order -> order.getItems().stream())
                 .collect(Collectors.groupingBy(Item::getName, Collectors.summingInt(Item::getAmount)));
     }
-
-
-
 
 
 }

@@ -7,11 +7,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        var orders = RestaurantOrders.read("orders_100.json").getOrders();
-//        var orders = RestaurantOrders.read("orders_1000.json").getOrders();
-        //var orders = RestaurantOrders.read("orders_10_000.json").getOrders();
-
-        // протестировать ваши методы вы можете как раз в этом файле (или в любом другом, в котором вам будет удобно)
         String menu = "Меню:\n" +
                 "Введите 1 чтобы вывезти все заказы.\n" +
                 "Введите 2 чтобы вывезти на экран наиболее прибыльные заказы.\n" +
@@ -96,14 +91,6 @@ public class Main {
                     break;
             }
         }
-
-
-
-
-
-
-
-
 
 
     }
