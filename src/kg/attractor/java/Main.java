@@ -17,7 +17,8 @@ public class Main {
 //        System.out.println(RestaurantOrders.read("orders_100.json").profitableAndLeastHomeOrders());
 //        System.out.println(RestaurantOrders.read("orders_100.json").sumTotal());
 //        System.out.println(RestaurantOrders.read("orders_100.json").customerEmails());
-        System.out.println(RestaurantOrders.read("orders_100.json").groupingByCustomerNames());
+//        System.out.println(RestaurantOrders.read("orders_100.json").groupingByCustomerNames());
+        System.out.println(RestaurantOrders.read("orders_100.json").grupingByNamesAndTotal());
 
 
 

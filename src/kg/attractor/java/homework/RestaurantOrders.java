@@ -86,11 +86,18 @@ public class RestaurantOrders {
         return orders.stream().mapToDouble(Order::getTotal).sum();
     }
     public Set<String> customerEmails() {
-        return orders.stream().map(order -> order.getCustomer().getEmail()).collect(Collectors.toSet());
+        return orders.stream()
+                .map(order -> order.getCustomer().getEmail())
+                .collect(Collectors.toSet());
     }
 
     public Map<Customer, List<Order>> groupingByCustomerNames() {
-        return orders.stream().collect(Collectors.groupingBy(Order::getCustomer));
+        return orders.stream()
+                .collect(Collectors.groupingBy(Order::getCustomer));
+    }
+    public Map<Customer, Double> grupingByNamesAndTotal() {
+        return groupingByCustomerNames().entrySet().stream()
+                .collect(Collectors.toMap(entry -> entry.getKey(), e -> e.getValue().stream().mapToDouble(Order::getTotal).sum()));
     }
 
 
