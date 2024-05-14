@@ -67,18 +67,20 @@ public class RestaurantOrders {
                 .collect(Collectors.toList());
     }
     public List<Order> profitableAndLeastHomeOrders(){
-        System.out.println("Заказ на дом который был наиболее прибыльным: ");
         List<Order> orders1 = new ArrayList<>();
         orders1.add(homeDeliveryOrders().stream()
                 .max(Comparator.comparingDouble(Order::getTotal)).get());
-        System.out.println("Заказ на дом который был наименее прибыльным: ");
         orders1.add(homeDeliveryOrders().stream()
                 .min(Comparator.comparingDouble(Order::getTotal)).get());
         return orders1;
     }
 
-
-    //  Создать метод, который будет выбирать все заказы с общей суммой больше minOrderTotal, и меньше maxOrderTotal.
+    public List<Order> returnOrdersBetweenMinTotalAndMaxTotal() {
+        return orders.stream()
+                .dropWhile(order -> order.getTotal() > profitableAndLeastHomeOrders().get(1).getTotal())
+                .takeWhile(order -> order.getTotal() < profitableAndLeastHomeOrders().get(0).getTotal())
+                .collect(Collectors.toList());
+    }
 
 
 
